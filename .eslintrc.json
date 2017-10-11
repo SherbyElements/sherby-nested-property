@@ -1,0 +1,8 @@
+{
+  "extends": [
+    "udes"
+  ],
+  "globals": {
+    "Sherby": true
+  }
+}

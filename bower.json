@@ -1,0 +1,22 @@
+{
+  "name": "sherby-nested-property",
+  "description": "A Polymer 2 mixin to add functions to obtain a nested property of an object",
+  "authors": [
+    "Benjamin Rancourt <benjamin.rancourt@usherbrooke.ca>"
+  ],
+  "main": "sherby-nested-property.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/github.com/SherbyElements/sherby-nested-property.git"
+  },
+  "homepage": "https://github.com/SherbyElements/sherby-nested-property",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^3.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  }
+}

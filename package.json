@@ -1,0 +1,36 @@
+{
+  "name": "sherby-nested-property",
+  "version": "1.0.0",
+  "description": "A Polymer 2 mixin to add functions to obtain a nested property of an object",
+  "scripts": {
+    "format": "npm run format:js && npm run format:json",
+    "format:js": "eslint . --ext js,html --ignore-path .gitignore --fix",
+    "format:json": "eslint . --ext .json --ignore-path .gitignore --fix",
+    "lint": "npm run lint:js && npm run lint:json && npm run lint:polymer",
+    "lint:js": "eslint . --ext js,html --ignore-path .gitignore",
+    "lint:json": "eslint . --ext .json --ignore-path .gitignore",
+    "lint:polymer": "polymer lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SherbyElements/sherby-nested-property.git"
+  },
+  "keywords": [
+    "get",
+    "nested",
+    "polymer",
+    "properties",
+    "property",
+    "sherby",
+    "webcomponents"
+  ],
+  "author": "Benjamin Rancourt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SherbyElements/sherby-nested-property/issues"
+  },
+  "homepage": "https://github.com/SherbyElements/sherby-nested-property",
+  "devDependencies": {
+    "eslint-config-udes": "^0.1.2"
+  }
+}
