@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>SherbyNestedPropertyMixin test</title>
+
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+
+  <script type="module" src="sherby-nested-property-mixin-test.js"></script>
+</head>
+
+<body>
+  <test-fixture id="basic">
+    <template>
+      <sherby-nested-property-mixin-test></sherby-nested-property-mixin-test>
+    </template>
+  </test-fixture>
+
+  <script type="module">
+    import { SherbyNestedPropertyMixin } from '../sherby-nested-property-mixin.js';
+
+    suite('SherbyNestedPropertyMixin', () => {
+      let element
+      setup(() => {
+        element = fixture('basic')
+      })
+
+      suite('getNestedProperty', () => {
+        test('should return the property if it is defined', () => {
+          const npm = element.getNestedProperty('data.webcomponents.polymer-3.npm')
+          assert.equal(npm, true);
+
+          const polymer2 = element.getNestedProperty('data.webcomponents.polymer-2')
+          assert.equal(polymer2, element.data.webcomponents['polymer-2']);
+        });
+
+        test('should return undefined if the property is not defined', () => {
+          const undefinedValue = element.getNestedProperty('data.webcomponents.polymer-1.npm')
+          assert.equal(undefinedValue, undefined);
+        });
+
+        test('should return the default value if the property is not defined', () => {
+          const defaultValue = 'default-value'
+          const undefinedValue = element.getNestedProperty('data.webcomponents.polymer-1.npm', defaultValue)
+          assert.equal(undefinedValue, defaultValue);
+        });
+
+        test('should return the correct value if the delimiter is not a dot', () => {
+          const delimiter = '_'
+          const defaultValue = 'default-value'
+
+          const undefinedValue = element.getNestedProperty('data_webcomponents_polymer-1_npm', defaultValue, delimiter)
+          assert.equal(undefinedValue, defaultValue);
+
+          const npm = element.getNestedProperty('data_webcomponents_polymer-3_npm', undefinedValue, delimiter)
+          assert.equal(npm, true);
+        });
+      })
+
+      suite('getNestedPropertyOf', () => {
+        test('should return the property if it is defined', () => {
+          const npm = element.getNestedPropertyOf(element.data, 'webcomponents.polymer-3.npm')
+          assert.equal(npm, true);
+
+          const polymer2 = element.getNestedPropertyOf(element.data, 'webcomponents.polymer-2')
+          assert.equal(polymer2, element.data.webcomponents['polymer-2']);
+        });
+
+        test('should return undefined if the property is not defined', () => {
+          const undefinedValue = element.getNestedPropertyOf(element.data, 'webcomponents.polymer-1.npm')
+          assert.equal(undefinedValue, undefined);
+        });
+
+        test('should return the default value if the property is not defined', () => {
+          const defaultValue = 'default-value'
+          const undefinedValue = element.getNestedPropertyOf(element.data, 'webcomponents.polymer-1.npm', defaultValue)
+          assert.equal(undefinedValue, defaultValue);
+        });
+
+        test('should return the correct value if the delimiter is not a dot', () => {
+          const delimiter = '_'
+          const defaultValue = 'default-value'
+
+          const undefinedValue = element.getNestedPropertyOf(element.data, 'webcomponents_polymer-1_npm', defaultValue, delimiter)
+          assert.equal(undefinedValue, defaultValue);
+
+          const npm = element.getNestedPropertyOf(element.data, 'webcomponents_polymer-3_npm', undefinedValue, delimiter)
+          assert.equal(npm, true);
+        });
+      })
+    });
+  </script>
+
+</body>
+
+</html>
