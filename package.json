@@ -1,19 +1,25 @@
 {
-  "name": "sherby-nested-property",
-  "version": "1.0.0",
-  "description": "A Polymer 2 mixin to add functions to obtain a nested property of an object",
+  "name": "@sherby/sherby-nested-property",
+  "flat": true,
+  "version": "2.0.0-rc.1",
+  "author": "Benjamin Rancourt <benjamin.rancourt@usherbrooke.ca>",
+  "description": "A Polymer 3 mixin to add functions to obtain a nested property of an object",
   "scripts": {
-    "format": "npm run format:js && npm run format:json",
-    "format:js": "eslint . --ext js,html --ignore-path .gitignore --fix",
-    "format:json": "eslint . --ext .json --ignore-path .gitignore --fix",
-    "lint": "npm run lint:js && npm run lint:json && npm run lint:polymer",
-    "lint:js": "eslint . --ext js,html --ignore-path .gitignore",
-    "lint:json": "eslint . --ext .json --ignore-path .gitignore",
-    "lint:polymer": "polymer lint"
+    "format": "npm-run-all format:*",
+    "format:js": "eslint . --ext js --fix",
+    "format:json": "eslint . --ext json --fix",
+    "format:markdown": "eslint . --ext md --fix",
+    "format:polymer": "polymer lint --fix",
+    "lint": "npm-run-all lint:*",
+    "lint:js": "eslint . --ext js",
+    "lint:json": "eslint . --ext json",
+    "lint:markdown": "eslint . --ext md",
+    "lint:polymer": "polymer lint",
+    "test": "polymer test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SherbyElements/sherby-nested-property.git"
+    "url": "https://github.com/SherbyElements/sherby-nested-property.git"
   },
   "keywords": [
     "get",
@@ -24,13 +30,17 @@
     "sherby",
     "webcomponents"
   ],
-  "author": "Benjamin Rancourt",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/SherbyElements/sherby-nested-property/issues"
   },
   "homepage": "https://github.com/SherbyElements/sherby-nested-property",
   "devDependencies": {
-    "eslint-config-udes": "^0.1.2"
+    "@polymer/polymer": "^3.0.2",
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.0",
+    "eslint-config-udes": "^0.2.1",
+    "npm-run-all": "^4.1.3"
   }
 }
