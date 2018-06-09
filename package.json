@@ -39,7 +39,7 @@
     "@polymer/polymer": "^3.0.2",
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
     "@webcomponents/webcomponentsjs": "^2.0.0",
-    "wct-browser-legacy": "^1.0.0",
+    "wct-browser-legacy": "^1.0.1",
     "eslint-config-udes": "^0.2.1",
     "npm-run-all": "^4.1.3"
   }
